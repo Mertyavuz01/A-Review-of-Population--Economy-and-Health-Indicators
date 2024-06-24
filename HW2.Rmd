@@ -18,86 +18,11 @@ library(ggplot2)
 knitr::opts_chunk$set(out.width = "100%")
 ```
 
-
-From Data to Viz leads you to the most appropriate graph for your data. It links to the code to build it and lists common caveats you should avoid.
-
-# Learning goals
-
--   Visualize different types of data based on *Data to Viz*
--   Interpret your visualisations.
--   Being aware of the related caveats
-
----
-
-## Prerequisites
-
-- This assignment assumes that you have worked through all materials up to and including week 11. 
-
-- Make sure you are familiar with this content. 
-
-- In some questions, maybe, you need to search additional functionalities from tidyverse packages or other packages.
-
-## Packages
-
-This assignment will use the following packages:
-
--   `tidyverse`: a collection of packages for doing data analysis in a "tidy" way
-
-We use the `library()` function to load packages.
-In your R Markdown document you should see an R chunk labelled `load-packages` which has the necessary code for loading both packages.
-
-```{r load-packages}
-library(tidyverse)
-```
-
-- You should also load these packages in your Console, which you can do by sending the code to your Console by clicking on the **Run Current Chunk** icon (green arrow pointing right icon).
-
-Note that these packages are also get loaded in your R Markdown environment when you **Knit** your R Markdown document.
-
----
-
-# About Data Set 
-
-The dataset for this assignment can be selected from the datasets given here
-
-https://rkabacoff.github.io/datavis/Data.html
-
-Feel free to choose whatever you want. You will try to answer general types of questions basically
-
-However, you need to choose another data set (Not same as your project!)
-
 ```{r load-data, message=FALSE, eval=TRUE}
 # Load data
 data(gapminder, package="gapminder")
 
-```
 
-------
-
-## Exercise 1 (10 pts)
-
-By exploring the page of https://www.data-to-viz.com/#explore 
-
-- Pick up one category and focus on on type of graph (Such as Categorical -> One categorical variable -> treemap)
-
-- Briefly explain why your selection is the suitable choice for such data by stating the properties of plot type. 
-
-✏️️🧶 ✅ ⬆️ *Write your answer in your R Markdown document , knit the document, make sure that your added R code chunk works well and you did not face with any knitting problem*
-```{r}
-# A bubble plot is suitable because it allows us to visualize the relationship between two continuous variables (e.g., life expectancy and GDP per capita) while also incorporating a third variable (e.g., population size). Each data point represents a country, and its position on the plot corresponds to the values of life expectancy and GDP per capita. Additionally, the size of the bubble represents the population size of each country. Bubble plots are intuitive, reveal trends, and help identify correlations, similar to scatter plots. However, they also allow for the visualization of a third variable, making them more informative in some cases.
-```
-
-## Exercise 2 (30 pts)
-
-Under the same page
-
-- Look at the related **Story** based on your selection (Such as Categoric -> One categorical variable)
-
-- Try to create on of the presented plots under **Story** section based on your own data set by mimicking the related code. Discuss your created single plot
-
-- Discuss any kind of caveats (listed here https://www.data-to-viz.com/caveats.html) that we need to be aware of based on the created plot (Assume that I created line chart and there is an caveat called The spaghetti chart). Suggest a solution from that related list to improve your visualization to avoid the mentioned caveat  
-
-✏️️🧶 ✅ ⬆️ *Write your answer in your R Markdown document , knit the document, make sure that your added R code chunk works well and you did not face with any knitting problem*
 ```{r}
 
 library(gapminder)
@@ -128,15 +53,6 @@ ggplot(latest_data, aes(x = gdpPercap, y = lifeExp, size = pop_millions, color =
 
 ```
 
-## Exercise 3 (30 pts)
-
-For some further illustration, using the Data Story concept
-
-- Create three different plots by following the same idea (Go to the Story page, see the examples and adapt the code for your needs)
-
-Remember that a data visualisation is just a pretty picture unless you know what the visualisation is about, so it is important to add axis labels and a title. Edit your code with a suitable title and axis labels. Try to be as clear as possible !
-
-✏️️🧶 ✅ ⬆️ *Write your answer in your R Markdown document , knit the document, make sure that your added R code chunk works well and you did not face with any knitting problem*
 ```{r}
 
 library(ggplot2)
@@ -195,15 +111,6 @@ plot3
 ```
 
 
-## Exercise 4 (30 pts)
-
-Based on your findings above (created three plots)
-
-- Merge all the plots using patchwork package idea to create 2x2 plot figure. 
-
-- Complete your journey by interpreting all the sub-plots based on the data storytelling concept. What they tell us, is there any difference among those, which one could be more effective in your mind ?
-
-✏️️🧶 ✅ ⬆️ *Write your answer in your R Markdown document , knit the document, make sure that your added R code chunk works well and you did not face with any knitting problem*
 
 ```{r}
 plot_combined <- (plot1 + plot2) / (plot3 + plot_spacer()) + 
@@ -216,39 +123,6 @@ print(plot_combined)
 
 
 ```
-## Review your work
-
-After answering each of the exercise, take a moment to review your work and to check that your code is clear and understandable. A proportion of the homework assignment marks are attributable to how you present your work, both code and written. This is a good practice for getting a new habit on writing codes. 
-
-When reviewing your code, add new lines, tabs and spaces where appropriate to help aid the reader to understand what your code is doing. Even if the exercise does not explicitly ask you to write some text, it is also good practice to add a short sentence to be explicit about what is your answer to the question.
-
-
-# Submission
-
-Once you have answered all of the exercises, please make sure that you have knitted your document and got the html (finally pdf) output correctly. 
-<!-- committed all the changes to GitHub. -->
-
-To submit your homework:
-
-1. Go to the Learn page related to HW assignment 
-
-2. Submit your `pdf` output file within the allocated submission slot
-
-3. Make sure that the knitted html document presents the anticipated output before completing your submission. After getting your html, you can simply save your file as pdf after opening it in a separate html window and using the print option.
-
-**IMPORTANT**: You must only submit the knitted html -> converted pdf document! If you face with any issue regarding your submission let us know asap !
-
-- If you have uploaded the wrong file or have made some changes and want to resubmit before the deadline, then return to the assignment page and submit the correct file for your assignment. 
-
-## How the homework graded
-
-The homework is grades out of a 100 where:
-
-* Each exercise is marked out of different portions regarding the question difficulty.
-
-* If you have any questions about the assignment, please raise your voice during online lectures and send your inquiries via email. 
-
-
 
 
 
